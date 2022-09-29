@@ -12,7 +12,7 @@ export const getAllProducts = catchAsync(async (req, res, next) => {
     .limitFields();
 
 
-  const data = await features.query.select('-__v');
+  const data = await features.query.select('-__v').limit(200);
 
   if (!data) next(new AppError('No document found with that ID', 404));
 
